@@ -1,4 +1,4 @@
-#include <Windows.h>
+#include <windows.h>
 
 // Global Functions Declarations
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -9,6 +9,7 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
     // Local Variable Declarations
+    
     WNDCLASSEX wndclass;
     HWND hwnd;
     MSG msg;
@@ -76,3 +77,4 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     }
     return (DefWindowProc(hwnd, iMsg, wParam, lParam));
 }
+         
