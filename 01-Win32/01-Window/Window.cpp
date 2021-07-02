@@ -39,12 +39,22 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 // It is internally WINMAINCRTSTARTUP
 // This function is also pre-decided by OS
 // Therefore OS decided parameters and OS decided return value.
+
+// Callback functions are re-entrants function but entry-point function gets called only once.
+//Parameters
+// 1. hInstance - Unique unsigned ID of current instance
+// 2. hPrevInstance - Null (Since Windows 3.1 due to pre-emptive multitasking)
+// 3. lpszCmdLine  - Command-line arguments (sz :- Zero terminated string)(Long Pointer to String)
+// 4. iCmdShow - How to show the Window (Minimized, Maximized)
+// WINAPI :- _far_pascal
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
     // Local Variable Declarations
     
+    // Structure to hold the Windows properties
     WNDCLASSEX wndclass;
     HWND hwnd;
+    // 
     MSG msg;
     TCHAR szAppName[] = TEXT("MyWindow");
 
