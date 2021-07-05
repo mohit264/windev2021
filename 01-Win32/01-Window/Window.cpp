@@ -61,9 +61,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     // Code
 
     // Step 1 - Initialize WNDCLASSEX structure
+    // Size of Window structure in bytes cb:- count of Bytes
     wndclass.cbSize = sizeof(WNDCLASSEX);
+    // class style of the window
+    // CS : Class Style
+    // HREDRAW: Horizontal ReDraw
+    // VREDRAW: Vertical ReDraw
+    // Why we need Redraw? Will get during PAINT message
     wndclass.style = CS_HREDRAW | CS_VREDRAW;
-	wndclass.lpfnWndProc = WndProc;
+    wndclass.lpfnWndProc = WndProc;
     wndclass.cbClsExtra = 0;
     wndclass.cbWndExtra = 0;
     wndclass.hInstance = hInstance;
