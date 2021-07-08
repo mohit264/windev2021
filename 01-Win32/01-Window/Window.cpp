@@ -105,6 +105,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     // Message Loop
     while (GetMessage(&msg, NULL, 0, 0))
     {
+        // OS is handling some default message in DefWindowProc
+        // Check where is the message happen on the window e.g. clicking on close button window in Left Mouse button down
+        // But the co-ordinate where the click is happened is close button.
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
