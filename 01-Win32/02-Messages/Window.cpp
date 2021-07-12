@@ -111,11 +111,21 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     // Code
     switch (iMsg)
     {
-    // case WM_DESTROY:
-    //     PostQuitMessage(0);
-    //     break;
+        //WM Create this message comes first and only once per execution
+        case WM_CREATE:
+        MessageBox(hwnd, TEXT("WM Create Message is arrived!"), TEXT("Message"), MB_OK);
+        break;
+        case WM_LBUTTONDOWN:
+        MessageBox(hwnd, TEXT("WM Left mouse Button is pressed!"), TEXT("Message"), MB_OK);
+        break;
+        case WM_KEYDOWN:
+        MessageBox(hwnd, TEXT("A Key is pressed!"), TEXT("Message"), MB_OK);
+        break;
+        case WM_DESTROY:
+        PostQuitMessage(0);
+        break;
     
-    default:
+        default:
         break;
     }
     return (DefWindowProc(hwnd, iMsg, wParam, lParam));

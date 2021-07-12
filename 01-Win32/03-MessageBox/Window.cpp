@@ -111,11 +111,22 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     // Code
     switch (iMsg)
     {
-    // case WM_DESTROY:
-    //     PostQuitMessage(0);
-    //     break;
+        int num1, num2, num3;
+        TCHAR str[255];
+        //WM Create this message comes first and only once per execution
+        case WM_CREATE:
+            num1 = 300;
+            num2 = 200;
+            num3 = num1 + num2;
+            wsprintf(str, TEXT("Addition of %d and %d is %d"), num1, num2, num3);
+            MessageBox(hwnd, str, TEXT("Sum"), MB_OK);
+        break;
+        
+        case WM_DESTROY:
+        PostQuitMessage(0);
+        break;
     
-    default:
+        default:
         break;
     }
     return (DefWindowProc(hwnd, iMsg, wParam, lParam));
