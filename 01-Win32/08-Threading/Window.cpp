@@ -4,7 +4,8 @@
 // in the code and it will use APIs compiled code during compilation process.
 // coco.h - in Mac
 #include <windows.h>
-#include "window.h"
+#include <tchar.h>
+
 // Global Functions Declarations
 
 // Declaring the function / prototype to let compiler know that body of this function will come later
@@ -31,6 +32,8 @@
 // if the less attributed message i.e. (16-bit) and if there more attributes to the message.
 // then it can be passed from LPARAM.
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+DWORD WINAPI ThreadProcOne(LPVOID);
+DWORD WINAPI ThreadProcTwo(LPVOID);
 
 // Global Variable Declarations
 
@@ -73,12 +76,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     wndclass.cbClsExtra = 0;
     wndclass.cbWndExtra = 0;
     wndclass.hInstance = hInstance;
-    wndclass.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(MYICON));
+    wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);
-    wndclass.hbrBackground = (HBRUSH) GetStockObject(WHITE_BRUSH);
+    wndclass.hbrBackground = (HBRUSH) GetStockObject(BLACK_BRUSH);
     wndclass.lpszClassName = szAppName;
     wndclass.lpszMenuName = NULL;
-    wndclass.hIconSm = LoadIcon(hInstance, MAKEINTRESOURCE(MYICON));
+    wndclass.hIconSm = LoadIcon(NULL, IDI_APPLICATION);
 
     // Step 2 - Register WNDCLASSEX structure
     RegisterClassEx(&wndclass);
@@ -117,19 +120,77 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
+    static HANDLE hThread1 = NULL;
+    static HANDLE hThread2 = NULL;
     // Code
     switch (iMsg)
     {
         case WM_CREATE:
+		// (LPVOID) hwnd : This will act as parameter to your ThreadProc
+            hThread1 = CreateThread(
+                NULL, 0, (LPTHREAD_START_ROUTINE) ThreadProcOne, (LPVOID) hwnd, 0, NULL);
+            //Should contain error checking for hThread1
+            hThread2 = CreateThread(
+                NULL, 0, (LPTHREAD_START_ROUTINE) ThreadProcTwo, (LPVOID) hwnd, 0, NULL);
+            // Should contain error checking for hThread2
+            
         break;
-        // Deleting this case will close the window
-        // But Window will not be destroyed. Verify in Task Manager     
+        case WM_LBUTTONDOWN:
+			MessageBox(hwnd, TEXT("I am Thread no 4"), TEXT("Message"), MB_OK);
+		break;
         case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
+            CloseHandle(hThread1);
+            CloseHandle(hThread2);
+         	PostQuitMessage(0);
+         break;
     
         default:
         break;
     }
     return (DefWindowProc(hwnd, iMsg, wParam, lParam));
 }
+
+DWORD WINAPI ThreadProcOne(LPVOID param)
+{
+    // variable declarations
+    HDC hdc = NULL;
+    TCHAR str[255];
+    long i;
+    
+    //Code
+    hdc = GetDC((HWND) param);
+	SetBkColor(hdc, RGB(0,0,0));
+	SetTextColor(hdc, RGB(0,255,0));
+	for (i = 0; i < 2147483647; i++)
+	{
+		/* code */
+		wsprintf(str, TEXT("Incrementing Order: %ld"), i);
+		TextOut(hdc, 5, 5, str, (int) _tcslen(str));
+	}
+	ReleaseDC((HWND) param, hdc);
+
+	return (0);
+}
+
+DWORD WINAPI ThreadProcTwo(LPVOID param)
+{
+    // variable declarations
+    HDC hdc = NULL;
+    TCHAR str[255];
+    long i;
+    
+    //Code
+    hdc = GetDC((HWND) param);
+	SetBkColor(hdc, RGB(0,0,0));
+	SetTextColor(hdc, RGB(255,0,0));
+	for (i = 2147483647; i >= 0 ; i--)
+	{
+		/* code */
+		wsprintf(str, TEXT("Decrementing Order: %ld"), i);
+		TextOut(hdc, 5, 25, str, (int) _tcslen(str));
+	}
+	ReleaseDC((HWND) param, hdc);
+
+	return (0);
+}
+
