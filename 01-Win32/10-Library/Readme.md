@@ -15,3 +15,6 @@ There are 4 paths where you can use dlls
 2. Windows directory
 3. System32 directory or SysWOW64 directory inside Windows directory 
 4. In any directory which is inside environmental path
+
+## Process and Dlls
+For every process in Windows operating system (32-bit) , virtual memory is 4GB. Out of 4GB, OS reserve (2GB for itself and 2GB for user process). So in case of your process memory footprint is growing and reaching near to 2GB ceiling then OS throws an error that not enough memory error for that process.
