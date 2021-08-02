@@ -8,3 +8,10 @@
 6. Every files inside control panel are dlls where their extensions are .cpl
 7. All font files whose extensions are .fon, .fot (Font object type), .ftf (Free type font) are dlls
 8. Most user mode drivers are usually dynamic link libraries whose extensions can be .drv
+
+## Search Locations of the dll
+There are 4 paths where you can use dlls
+1. The best location of the dll is where the executable of the dll resides
+2. Windows directory
+3. System32 directory or SysWOW64 directory inside Windows directory 
+4. In any directory which is inside environmental path
