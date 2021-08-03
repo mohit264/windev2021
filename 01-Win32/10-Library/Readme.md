@@ -18,3 +18,7 @@ There are 4 paths where you can use dlls
 
 ## Process and Dlls
 For every process in Windows operating system (32-bit) , virtual memory is 4GB. Out of 4GB, OS reserve (2GB for itself and 2GB for user process). So in case of your process memory footprint is growing and reaching near to 2GB ceiling then OS throws an error that not enough memory error for that process.
+
+### In .h files, there are only declarations or signatures
+### In .dll there is your code
+### In .lib tells linker where to map the dll in virtual address space.
