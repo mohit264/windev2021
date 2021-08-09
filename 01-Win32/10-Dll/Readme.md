@@ -22,3 +22,4 @@ For every process in Windows operating system (32-bit) , virtual memory is 4GB. 
 ### In .h files, there are only declarations or signatures
 ### In .dll there is your code
 ### In .lib(Import Library) tells linker where to map the dll at runtime in virtual address space.
+### The one who serves is server and the one who consumes the services is Client
