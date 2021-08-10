@@ -36,10 +36,20 @@ For every process in Windows operating system (32-bit) , virtual memory is 4GB. 
 1. Using Declspec : Should be use when both client and server are in your control or if the client will be created using Microsoft
 2. Using Def File : When client is not in your control. i.e. if client application which is going to develop other than Microsoft compiler then use this approach to create the dlls. Microsoft use this approach to create it's own dlls using DEF Files.
 
-> What actually the def file does which gives dll such flexibility
+> What actually in def file does which gives dll such flexibility
+
 Dll is language independent, that means dll can be created in any language.
 However, this is not true in case of DLL clients. i.e. If you created dll in C++ then it will run smoothly in Client created using C++ language but such guarantee can't be given for clients created in other languages!
 
 > What is the Problem with such Client!
 
 *Object Orient Programming Paradigm* specially **Polymorphism** feature in OOPs
+> OOP is for Human Mind! Machine only understand Procedural Oriented language 
+
+For, early binding - ( Function Overloading ), we can write function with same name but with different parameters, types and order of parameters.
+However during compilation compiler mangles the name and create different functions to uniquely identify which function should be called at runtime as at binary level everything is procedural oriented programming.
+
+**The Problem (commercial benefit!) with C++**
+Since C++ has given freedom to compiler creators to implement their own creativity to mangle the names uniquely. This created different ways of name mangling between different compiler vendors and that's why C++ didn't have it's own binary standard!
+
+> So to have universally accepted name mangling standard to work with C++ dlls across different C++ compiler vendors, we should use **extern "C"** so that it gets compiled to *C binary format* which is universally accepted binary standard  
