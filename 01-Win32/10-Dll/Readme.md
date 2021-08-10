@@ -46,10 +46,14 @@ However, this is not true in case of DLL clients. i.e. If you created dll in C++
 *Object Orient Programming Paradigm* specially **Polymorphism** feature in OOPs
 > OOP is for Human Mind! Machine only understand Procedural Oriented language 
 
-For, early binding - ( Function Overloading ), we can write function with same name but with different parameters, types and order of parameters.
+For, early binding - ( Function Overloading ), we can write function with same name with different parameters, types of parameters and order of parameters.
 However during compilation compiler mangles the name and create different functions to uniquely identify which function should be called at runtime as at binary level everything is procedural oriented programming.
 
 **The Problem (commercial benefit!) with C++**
 Since C++ has given freedom to compiler creators to implement their own creativity to mangle the names uniquely. This created different ways of name mangling between different compiler vendors and that's why C++ didn't have it's own binary standard!
 
 > So to have universally accepted name mangling standard to work with C++ dlls across different C++ compiler vendors, we should use **extern "C"** so that it gets compiled to *C binary format* which is universally accepted binary standard  
+
+
+DEF File is not case-sensitive. However, as per conventions statements in the File should be in CAPITAL
+**First statement must be LIBRARY**
