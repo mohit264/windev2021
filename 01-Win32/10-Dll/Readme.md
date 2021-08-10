@@ -35,3 +35,10 @@ For every process in Windows operating system (32-bit) , virtual memory is 4GB. 
 ### Two Ways of Creating Dlls
 1. Using Declspec : Should be use when both client and server are in your control or if the client will be created using Microsoft
 2. Using Def File : When client is not in your control. i.e. if client application which is going to develop other than Microsoft compiler then use this approach to create the dlls. Microsoft use this approach to create it's own dlls using DEF Files.
+
+> What actually the def file does which gives dll such flexibility
+Dll is language independent, that means dll can be created in any language.
+However, this is not true in case of DLL clients. i.e. If you created dll in C++ then it will run smoothly in Client created using C++ language but such guarantee can't be given for clients created in other languages!
+
+> What is the Problem with such Client!
+*Object Orient Programming Paradigm* specially * Polymorphism * feature in OOPs
