@@ -31,3 +31,7 @@ For every process in Windows operating system (32-bit) , virtual memory is 4GB. 
 2. DJGPP (Not much used in now)
 3. Borland
 4. Watcom (Not used much today)
+
+### 2 Ways of Creating Dlls
+1. Using Declspec : Should be use when both client and server are in your control or if the client will be created using Microsoft
+2. Using Def File : When client is not in your control. i.e. if client application which is going to develop other than Microsoft compiler then use this approach to create the dlls. Microsoft use this approach to create it's own dlls using DEF Files.
