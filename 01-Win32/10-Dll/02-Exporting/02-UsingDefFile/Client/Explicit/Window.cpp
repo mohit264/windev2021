@@ -4,7 +4,7 @@
 // in the code and it will use APIs compiled code during compilation process.
 // coco.h - in Mac
 #include <windows.h>
-#include"MyMath.h"
+
 
 // Global Functions Declarations
 
