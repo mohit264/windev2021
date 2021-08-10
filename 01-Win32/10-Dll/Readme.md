@@ -25,3 +25,9 @@ For every process in Windows operating system (32-bit) , virtual memory is 4GB. 
 ### The one who serves is server and the one who consumes the services is Client
 
 #### When you use extern "C" , it is the proper way to create dlls.
+
+## SDKs other than Win32 SDK used for development Windows GUI based application
+1. MinGW (Minimum GNU for Windows)
+2. DJGPP (Not much used in now)
+3. Borland
+4. Watcom (Not used much today)
