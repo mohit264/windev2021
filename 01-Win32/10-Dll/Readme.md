@@ -41,4 +41,4 @@ Dll is language independent, that means dll can be created in any language.
 However, this is not true in case of DLL clients. i.e. If you created dll in C++ then it will run smoothly in Client created using C++ language but such guarantee can't be given for clients created in other languages!
 
 > What is the Problem with such Client!
-*Object Orient Programming Paradigm* specially * Polymorphism * feature in OOPs
+*Object Orient Programming Paradigm* specially ** Polymorphism ** feature in OOPs
