@@ -57,3 +57,20 @@ Since C++ has given freedom to compiler creators to implement their own creativi
 
 DEF File is not case-sensitive. However, as per conventions statements in the File should be in CAPITAL
 **First statement must be LIBRARY**
+
+## Ways to export the data
+1. 
+> // should be done globally if you want to export string array
+> // When you want to export the data using shared memory. Then you must initilize it so that the data will get allocation in shared memory otherwise it will be in data segment
+> // of the process. The second constraint is you must put into #pragma data_seg() block as below. 
+
+> #pragrma data_seg("temp")
+> char str[255] = {'\0'};
+> #pragma data_seg()
+> #pragma comment(linker, "/SECTION:temp,RWS")
+
+2.
+Make the exportable data as return value of the exported function or by parameterized returned value by using out parameter
+
+> **Microsft doesn't recommend the expose the data from the library because they are not safe and reliable. Because it has to be kept global. In case of shared memory, across devicess such as embedded or mobiles, memory is not abundant.
+> In case of your data return value is int, double then it is good. But in case of custom type you have to provide the header file to let clinet know about the fields of the data making your class internals exposed to client
