@@ -74,3 +74,11 @@ Make the exportable data as return value of the exported function or by paramete
 
 > **Microsft doesn't recommend the expose the data from the library because they are not safe and reliable. Because it has to be kept global. In case of shared memory, across devicess such as embedded or mobiles, memory is not abundant.
 > In case of your data return value is int, double then it is good. But in case of custom type you have to provide the header file to let clinet know about the fields of the data making your class internals exposed to client
+
+
+### Internationalization of the dlls (Resource only dll)
+> 1. Create RC File
+> 2. Create the dll main to return true.
+> 3. Header file for the resorces unique id.
+> Client must use explicit linking def file. or load library
+> All Resouronly functions start with Load keyword (LoadIcon) and the first parameter is instance handle (you need to pass here dll's handle here)
