@@ -59,6 +59,7 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 
 
        |
+       
        |   
        
                    OSF
@@ -74,6 +75,5 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
        
        |
        V
-       
        
     DCOM - 1996
