@@ -71,6 +71,7 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
               DCE   RPC  UUID
        
        
+       
        |
        V
     DCOM - 1996
