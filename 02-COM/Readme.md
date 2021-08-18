@@ -35,8 +35,8 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 
 ## History of COM
 
-1. ClipBoard - 1987
-       |
+1. ClipBoard - 1987 \n
+     **|
        V
 2. DDE - 1989
        |
