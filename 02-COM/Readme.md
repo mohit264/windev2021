@@ -26,3 +26,31 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 4. DLL is not object oriented. DLL can only export procedural functions. DLL can't expose the functions written inside the class! COM made exporting classes possible.
 5. Because of Name Mangling, cliebnt has to be of same vendor. Extern "C" can only be applied to open functions.
 6. When you modify the Dlls, firstly we don't know which clients have linked Dlls implicitly which requires the Dlls need to relink. In COM Dlls can have multiple versions. 
+
+## Overhead / hidden members in C++
+1. this pointer
+2. vptr
+3. type_info
+4. LPVTBL ( Added in COM)
+
+## History of COM
+
+1. ClipBoard - 1987
+       |
+       V
+2. DDE - 1989
+       |
+       V
+3. OLE1 - 1991
+       |
+       V
+4. OLE2 - 1993
+       |
+       V
+5.    COM - 1995
+       |            OSF
+       |             |
+       |          /  |  \
+       |       DCE  RPC  UUID
+       |
+      DCOM - 1996
