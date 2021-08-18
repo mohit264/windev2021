@@ -43,28 +43,29 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 2. DDE - 1989
        
        
-       |
-       
-       
+       |       
        V
 3. OLE1 - 1991
        
        
-       |
-       
-       
+       |       
        V
 4. OLE2 - 1993
        
        
-       |
-       
-       
+       |       
        V
 5.    COM - 1995
+
+
+       |
        |            OSF
+       
+       
        |             |
        |          /  |  \
-       |       DCE  RPC  UUID
+       |        /    V    \
+               DCE  RPC  UUID
        |
+       V
       DCOM - 1996
