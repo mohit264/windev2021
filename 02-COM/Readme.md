@@ -79,3 +79,6 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
        V
        
     DCOM - 1996
+
+![image](https://user-images.githubusercontent.com/19527422/130830926-a0b4a113-5637-495f-bc38-6d446e7c0963.png)
+
