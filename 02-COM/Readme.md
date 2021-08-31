@@ -105,5 +105,7 @@ HRESULT CoCreateInstance(Params)
      
               pIClassFactory->CreateInstance(NULL, IID_ISum, ppv);
      
-     }`
+     }
+  }
+     `
 
