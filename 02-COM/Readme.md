@@ -86,3 +86,16 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 > COM's one of the important feature is binary encapsulation. This is implemented using declaration of class inside cpp file instead of header file (.h). So that it can't be seen by anyone.
 
 **link objfilename /DEF:def-file-name ole32.lib oleaut32.lib /machine:64 (for 64 bit)**
+
+
+`HRESULT CoCreateInstance(Params)
+{
+     IClassFactory *pIClassfactory;
+     HRESULT hr;
+     hr = CoGetClassObject(rClsID, dwClsCtx, NULL, IID_ICLASSFACTORY, (void **) &pIClassFactory);
+     if(SUCEEDED(hr))
+     {
+         pIClassFactory->CreateInstance(NULL, IID_ISum, ppv);
+     }
+`
+
