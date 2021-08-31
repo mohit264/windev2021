@@ -84,4 +84,5 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 ![image](https://user-images.githubusercontent.com/19527422/130830926-a0b4a113-5637-495f-bc38-6d446e7c0963.png)
 
 > COM's one of the important feature is binary encapsulation. This is implemented using declaration of class inside cpp file instead of header file (.h). So that it can't be seen by anyone.
-> link objfilename /DEF:def-file-name ole32.lib oleaut32.lib /machine:64 (for 64 bit)
+
+**link objfilename /DEF:def-file-name ole32.lib oleaut32.lib /machine:64 (for 64 bit)**
