@@ -88,7 +88,8 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 **link objfilename /DEF:def-file-name ole32.lib oleaut32.lib /machine:64 (for 64 bit)**
 
 
-`HRESULT CoCreateInstance(Params)
+`
+HRESULT CoCreateInstance(Params)
 
 {
      
@@ -104,6 +105,5 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
      
               pIClassFactory->CreateInstance(NULL, IID_ISum, ppv);
      
-     }
-`
+     }`
 
