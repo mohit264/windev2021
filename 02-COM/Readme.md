@@ -89,13 +89,21 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 
 
 `HRESULT CoCreateInstance(Params)
+
 {
+     
      IClassFactory *pIClassfactory;
+     
      HRESULT hr;
+     
      hr = CoGetClassObject(rClsID, dwClsCtx, NULL, IID_ICLASSFACTORY, (void **) &pIClassFactory);
+     
      if(SUCEEDED(hr))
+     
      {
-         pIClassFactory->CreateInstance(NULL, IID_ISum, ppv);
+     
+              pIClassFactory->CreateInstance(NULL, IID_ISum, ppv);
+     
      }
 `
 
