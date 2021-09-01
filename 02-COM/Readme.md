@@ -88,7 +88,7 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 **link objfilename /DEF:def-file-name ole32.lib oleaut32.lib /machine:64 (for 64 bit)**
 
 
-`   HRESULT CoCreateInstance(Params)
+`   HRESULT CoCreateInstance(REFCLSID rclsID, IUnknown *punkOuter, DWORD dwClsCtx, REFIID iid, void **ppv)
     {
      
      IClassFactory *pIClassfactory;
@@ -106,4 +106,6 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
      }
   }
      `
-
+>CoGetClassObject observes first parameter which is your CLSID. It takes this CLSID and goes into registry and search for that CLSID and retrieve the path of the dll from the CLSID key against that registry. After that CoGetClassObject calls LoadLibrary Function and pass the retrieved path. It then calls GetProcAddress for each exported function from your server dll. i.e.
+> 1. DllGetClassObject
+> 2. DllCanUnloadNow 
