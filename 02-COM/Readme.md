@@ -117,4 +117,4 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 > and retrieved their function pointers and calls DllGetClassObject method and passes parameters as below
 > (CLSID of CSumSubtract, IID of IClassFactory, and the empty \*\* ppv object to get IClassFactory Instance)
 
-*If CoLoadLibrary's second parameter is set to True, COM probes periodically whether Dll is required for any work if not then call DllCanUnloadNow() to free out the memory area used by server dll.
+*If CoLoadLibrary's second parameter is set to True, COM probes periodically whether Dll is required for any work if not then call DllCanUnloadNow() to free out the memory area used by server dll. If the second parameter is set to false then when client exe is destroyed, Dll automatically gets evicted by OS.
