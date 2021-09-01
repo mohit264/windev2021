@@ -101,9 +101,14 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
      
      {
      
-              pIClassFactory->CreateInstance(NULL, IID_ISum, ppv);
+             hr = pIClassFactory->CreateInstance(NULL, IID_ISum, ppv);
+             if(SUCCEEDED(hr))
+             {
+                     pIcClassFactory->Release();
+             }
      
      }
+     return(hr);
   }
      `
 >CoGetClassObject observes first parameter which is your CLSID. It takes this CLSID and goes into registry and search for that CLSID and retrieve the path of the dll from the CLSID key against that registry. After that CoGetClassObject calls LoadLibrary Function and pass the retrieved path. It then calls GetProcAddress for each exported function from your server dll. i.e.
