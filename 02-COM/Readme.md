@@ -116,3 +116,5 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 > 2. DllCanUnloadNow 
 > and retrieved their function pointers and calls DllGetClassObject method and passes parameters as below
 > (CLSID of CSumSubtract, IID of IClassFactory, and the empty \*\* ppv object to get IClassFactory Instance)
+
+*If CoLoadLibrary's second parameter is set to True, COM probes periodically whether Dll is required for any work if not then call DllCanUnloadNow() to free out the memory area used by server dll.
