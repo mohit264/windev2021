@@ -28,6 +28,7 @@ public:
     HRESULT __stdcall CreateInstance(IUnknown *,REFIID, void **);
     HRESULT __stdcall LockServer(BOOL);
 };
+
 long glNumberOfActiveComponents=0;
 long glNumberOfActiveLocks=0;
 
@@ -115,6 +116,25 @@ CSumSubtractClassFactory::~CSumSubtractClassFactory()
 {
 }
 
+HRESULT CSumSubtractClassFactory::QueryInterface(REFIID riid, void **ppv)
+{
+    if (riid == IID_IUnknown)
+    {
+        *ppv = static_cast<IClassFactory *>(this);
+    }
+    else if (riid == IID_IClassFactory)
+    {
+        *ppv =  static_cast<IClassFactory *>(this);
+    }
+    else
+    {
+        *ppv = NULL;
+        return (E_NOINTERFACE);
+    }
+    reinterpret_cast<IUnknown *> (*ppv)->AddRef();
+    return (S_OK);
+}
+
 ULONG CSumSubtractClassFactory::AddRef()
 {
     InterlockedIncrement(&m_cRef);
@@ -132,6 +152,26 @@ ULONG CSumSubtractClassFactory::Release()
     return (m_cRef);
 }
 
+HRESULT CSumSubtractClassFactory::CreateInstance(IUnknown *pUnkOuter, REFIID riid,
+void **ppv)
+{
+    CSumSubtract *pCSumSubtract = NULL;
+    HRESULT hr;
+    if (pUnkOuter != NULL)
+    {
+        return (CLASS_E_NOAGGREGATION);
+    }
+    pCSumSubtract = new CSumSubtract;
+    if (pCSumSubtract == NULL)
+    {
+        return (E_OUTOFMEMORY);
+    }
+    hr = pCSumSubtract->QueryInterface(riid, ppv);
+    pCSumSubtract->Release();
+    return(hr);
+    
+}
+
 HRESULT CSumSubtractClassFactory::LockServer(BOOL fLock)
 {
     if (fLock)
@@ -143,4 +183,31 @@ HRESULT CSumSubtractClassFactory::LockServer(BOOL fLock)
         InterlockedDecrement(&glNumberOfActiveLocks);
     }
     return (S_OK);
+}
+
+HRESULT __stdcall DllGetClassObject(REFCLSID rclsid, REFIID riid, void **ppv)
+{
+    CSumSubtractClassFactory *pCSumSubtractClassFactory = NULL;
+    HRESULT hr;
+    if (rclsid != CLSID_SumSubtract)
+    {
+        return(CLASS_E_CLASSNOTAVAILABLE);
+    }
+    pCSumSubtractClassFactory = new CSumSubtractClassFactory;
+    if (pCSumSubtractClassFactory == NULL)
+    {
+        return (E_OUTOFMEMORY);
+    }
+    pCSumSubtractClassFactory->QueryInterface(riid, ppv);
+    pCSumSubtractClassFactory->Release();
+    return (hr);    
+}
+
+HRESULT __stdcall DllCanUnloadNow()
+{
+    if ((glNumberOfActiveLocks == 0) && (glNumberOfActiveComponents == 0))
+    {
+        return(S_OK);
+    }
+    return (S_FALSE);
 }
