@@ -198,7 +198,7 @@ HRESULT __stdcall DllGetClassObject(REFCLSID rclsid, REFIID riid, void **ppv)
     {
         return (E_OUTOFMEMORY);
     }
-    pCSumSubtractClassFactory->QueryInterface(riid, ppv);
+    hr = pCSumSubtractClassFactory->QueryInterface(riid, ppv);
     pCSumSubtractClassFactory->Release();
     return (hr);    
 }

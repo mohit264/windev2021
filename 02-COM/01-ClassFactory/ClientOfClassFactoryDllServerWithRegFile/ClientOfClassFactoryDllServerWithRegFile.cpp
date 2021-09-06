@@ -4,7 +4,7 @@
 // in the code and it will use APIs compiled code during compilation process.
 // coco.h - in Mac
 #include <windows.h>
-
+#include "ClassFactoryDllServerWithRegFile.h"
 // Global Functions Declarations
 
 // Declaring the function / prototype to let compiler know that body of this function will come later
@@ -31,7 +31,8 @@
 // if the less attributed message i.e. (16-bit) and if there more attributes to the message.
 // then it can be passed from LPARAM.
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-
+ISum *pISum = NULL;
+ISubtract *pISubtract = NULL;
 // Global Variable Declarations
 
 // Entry point Functions
@@ -50,7 +51,7 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
     // Local Variable Declarations
-    
+    HRESULT hr;
     // Structure to hold the Windows properties
     WNDCLASSEX wndclass;
     HWND hwnd;
@@ -60,6 +61,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 
     // Code
 
+    hr = CoInitialize(NULL);
+    if (FAILED(hr))
+    {
+        MessageBox(NULL, TEXT("COM Library Can not be initialized.\n Program will now Exit!"),
+        TEXT("Program Error"), MB_OK);
+        exit(0);
+    }
+    
     // Step 1 - Initialize WNDCLASSEX structure
     // Size of Window structure in bytes cb:- count of Bytes
     wndclass.cbSize = sizeof(WNDCLASSEX);
@@ -111,18 +120,54 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
-
+    CoUninitialize();
     return ((int) msg.wParam);
 }
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 {
+    HRESULT hr;
+    int num1,num2,iSum,iSubtract;
+    TCHAR str[255];
+    iSum = 0;
+    iSubtract = 0;
+    num1 = 300;
+    num2 = 200;
     // Code
     switch (iMsg)
     {
-    // case WM_DESTROY:
-    //     PostQuitMessage(0);
-    //     break;
+        case WM_CREATE:
+            hr = CoCreateInstance(CLSID_SumSubtract, NULL, CLSCTX_INPROC_SERVER, IID_ISum, (void **) &pISum);
+            if (FAILED(hr))
+            {
+                MessageBox(hwnd, TEXT("ISum Interface Can Not be Obtained"), TEXT("Error!"), MB_OK);
+                DestroyWindow(hwnd);
+            }
+            hr = pISum->SumOfTwoIntegers(num1, num2, &iSum);
+            wsprintf(str, TEXT("Sum Of %d and %d is %d"),num1,num2,iSum);
+            MessageBox(hwnd, str, TEXT("Sum Of Two Integers"), MB_OK);
+     
+            hr = pISum->QueryInterface(IID_ISubtract, (void **) &pISubtract);
+            if (FAILED(hr))
+            {
+                MessageBox(hwnd, TEXT("ISubtract Interface Can not be obtained"), TEXT("Error"), MB_OK);
+                pISum->Release();
+                pISum = NULL;
+                DestroyWindow(hwnd);
+            }
+            
+            pISubtract->SubtractionOfTwoIntegers(num1,num2, &iSubtract);
+            wsprintf(str, TEXT("Subtraction Of %d and %d is %d"),num1,num2,iSubtract);
+            MessageBox(hwnd, str, TEXT("Subtraction Of Two Integers"), MB_OK);
+            pISubtract->Release();
+            pISubtract = NULL;
+            pISum->Release();
+            pISum = NULL;
+        break;
+
+        case WM_DESTROY:
+            PostQuitMessage(0);
+        break;
     
     default:
         break;
