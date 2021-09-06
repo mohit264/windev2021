@@ -185,7 +185,7 @@ HRESULT CSumSubtractClassFactory::LockServer(BOOL fLock)
     return (S_OK);
 }
 
-HRESULT __stdcall DllGetClassObject(REFCLSID rclsid, REFIID riid, void **ppv)
+extern "C" HRESULT __stdcall DllGetClassObject(REFCLSID rclsid, REFIID riid, void **ppv)
 {
     CSumSubtractClassFactory *pCSumSubtractClassFactory = NULL;
     HRESULT hr;
@@ -203,7 +203,7 @@ HRESULT __stdcall DllGetClassObject(REFCLSID rclsid, REFIID riid, void **ppv)
     return (hr);    
 }
 
-HRESULT __stdcall DllCanUnloadNow()
+extern "C" HRESULT __stdcall DllCanUnloadNow()
 {
     if ((glNumberOfActiveLocks == 0) && (glNumberOfActiveComponents == 0))
     {
