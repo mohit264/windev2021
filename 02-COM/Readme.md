@@ -121,6 +121,7 @@ COM = Polymorphism + Late Late Binding (Real Late Binding) + Binary Encapsulatio
 
 IUnknown Properties
 
+![image](https://user-images.githubusercontent.com/19527422/132557930-487d5599-7ccc-4f37-8635-845671706c00.png)
 
 
 1. Identity
