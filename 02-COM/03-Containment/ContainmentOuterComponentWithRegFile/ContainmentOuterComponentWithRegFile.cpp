@@ -1,10 +1,13 @@
 #include<Windows.h>
-#include"ClassFactoryDllServerWithRegFile.h"
+#include"ContainmentOuterComponentWithRegFile.h"
+#include"ContainmentInnerComponentWithRegFile.h"
 
-class CSumSubtract: public ISum, ISubtract
+class CSumSubtract: public ISum, ISubtract, IMultiplication, IDivision
 {
     private:
         long m_cRef;
+        IMultiplication *m_pIMultiplication;
+        IDivision *m_pIDivision;
     public:
         CSumSubtract(void);
         ~CSumSubtract(void);
@@ -13,6 +16,9 @@ class CSumSubtract: public ISum, ISubtract
         ULONG __stdcall Release(void);
         HRESULT __stdcall SumOfTwoIntegers(int, int, int *);
         HRESULT __stdcall SubtractionOfTwoIntegers(int, int, int *); 
+        HRESULT __stdcall MultiplicationOfTwoIntegers(int, int, int *);
+        HRESULT __stdcall DivisionOfTwoIntegers(int, int, int *);
+        HRESULT __stdcall InitializeInnerComponent(void);
 };
 
 class CSumSubtractClassFactory: public IClassFactory
@@ -20,8 +26,8 @@ class CSumSubtractClassFactory: public IClassFactory
 private:
     long m_cRef;
 public:
-    CSumSubtractClassFactory(/* args */);
-    ~CSumSubtractClassFactory();
+    CSumSubtractClassFactory(void);
+    ~CSumSubtractClassFactory(void);
     HRESULT  __stdcall QueryInterface(REFIID, void **);
     ULONG __stdcall AddRef(void);
     ULONG __stdcall Release(void);
@@ -48,12 +54,25 @@ BOOL WINAPI DllMain(HINSTANCE hDll, DWORD dwReason, LPVOID Reserved)
 CSumSubtract::CSumSubtract(void)
 {
     m_cRef=1;
+    m_pIMultiplication = NULL;
+    m_pIDivision = NULL;
     InterlockedIncrement(&glNumberOfActiveComponents);
 }
 
 CSumSubtract::~CSumSubtract(void)
 {
     InterlockedDecrement(&glNumberOfActiveComponents);
+    if (m_pIMultiplication)
+    {
+        m_pIMultiplication->Release();
+        m_pIMultiplication = NULL;
+    }
+
+    if (m_pIDivision)
+    {
+        m_pIDivision->Release();
+        m_pIDivision = NULL;
+    }
 }
 
 HRESULT CSumSubtract::QueryInterface(REFIID riid, void **ppv)
@@ -69,7 +88,7 @@ HRESULT CSumSubtract::QueryInterface(REFIID riid, void **ppv)
     }
     */
     if(riid == IID_IUnknown)
-        *ppv=static_cast<ISum *>(this);
+        *ppv = static_cast<ISum *>(this);
     else if (riid == IID_ISum)
     {
         *ppv = static_cast<ISum *>(this);
@@ -77,6 +96,14 @@ HRESULT CSumSubtract::QueryInterface(REFIID riid, void **ppv)
     else if (riid == IID_ISubtract)
     {
         *ppv = static_cast<ISubtract *>(this);
+    }
+    else if (riid == IID_IMultiplication)
+    {
+        *ppv = static_cast<IMultiplication *>(this);
+    }
+    else if (riid == IID_IDivision)
+    {
+        *ppv = static_cast<IDivision *>(this);
     }
     else
     {
@@ -117,7 +144,43 @@ HRESULT CSumSubtract::SubtractionOfTwoIntegers(int num1, int num2, int *pSubtrac
     return (S_OK);
 }
 
-CSumSubtractClassFactory::CSumSubtractClassFactory(/* args */)
+HRESULT CSumSubtract::MultiplicationOfTwoIntegers(int num1, int num2, int *pMultiplication)
+{
+    m_pIMultiplication->MultiplicationOfTwoIntegers(num1, num2, pMultiplication);
+    return (S_OK);
+}
+
+HRESULT CSumSubtract::DivisionOfTwoIntegers(int num1, int num2, int *pDivision)
+{
+    m_pIDivision->DivisionOfTwoIntegers(num1, num2, pDivision);
+    return (S_OK);
+}
+
+HRESULT CSumSubtract::InitializeInnerComponent(void)
+{
+    HRESULT hr;
+    hr = CoCreateInstance(CLSID_MultiplicationDivision, NULL, CLSCTX_INPROC_SERVER, IID_IMultiplication, 
+                            (void **) &m_pIMultiplication);
+    if (FAILED(hr))
+    {
+        MessageBox(NULL, 
+                TEXT("IMultiplication Interface CANNOT be obtained From Inner Component"),
+                TEXT("Error!!"), MB_OK);
+        return (E_FAIL);
+    }
+    hr = m_pIMultiplication->QueryInterface(IID_IDivision, (void **) &m_pIDivision);
+    if (FAILED(hr))
+    {
+        MessageBox(NULL, 
+                TEXT("IDivision Interface CANNOT be obtained From Inner Component"),
+                TEXT("Error!!"), MB_OK);
+        return(E_FAIL);
+    }
+
+    return(S_OK);
+}
+
+CSumSubtractClassFactory::CSumSubtractClassFactory(void)
 {
     m_cRef =1;
 }
@@ -176,10 +239,18 @@ void **ppv)
     {
         return (E_OUTOFMEMORY);
     }
+    hr = pCSumSubtract->InitializeInnerComponent();
+    if (FAILED(hr))
+    {
+        MessageBox(NULL, 
+                    TEXT("Failed to Initialize Inner Component"),
+                    TEXT("Error!!"), MB_OK);
+        pCSumSubtract->Release();
+        return(hr);
+    }
     hr = pCSumSubtract->QueryInterface(riid, ppv);
     pCSumSubtract->Release();
     return(hr);
-    
 }
 
 HRESULT CSumSubtractClassFactory::LockServer(BOOL fLock)

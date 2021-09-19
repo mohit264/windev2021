@@ -1,32 +1,32 @@
 #include<Windows.h>
-#include"ClassFactoryDllServerWithRegFile.h"
+#include"ContainmentInnerComponentWithRegFile.h"
 
-class CSumSubtract: public ISum, ISubtract
+class CMultiplicationDivision: public IMultiplication, IDivision
 {
     private:
         long m_cRef;
     public:
-        CSumSubtract(void);
-        ~CSumSubtract(void);
+        CMultiplicationDivision(void);
+        ~CMultiplicationDivision(void);
         HRESULT  __stdcall QueryInterface(REFIID, void **);
         ULONG __stdcall AddRef(void);
         ULONG __stdcall Release(void);
-        HRESULT __stdcall SumOfTwoIntegers(int, int, int *);
-        HRESULT __stdcall SubtractionOfTwoIntegers(int, int, int *); 
+        HRESULT __stdcall MultiplicationOfTwoIntegers(int, int, int *);
+        HRESULT __stdcall DivisionOfTwoIntegers(int, int, int *); 
 };
 
-class CSumSubtractClassFactory: public IClassFactory
+class CMultiplicationDivisionClassFactory: public IClassFactory
 {
-private:
-    long m_cRef;
-public:
-    CSumSubtractClassFactory(/* args */);
-    ~CSumSubtractClassFactory();
-    HRESULT  __stdcall QueryInterface(REFIID, void **);
-    ULONG __stdcall AddRef(void);
-    ULONG __stdcall Release(void);
-    HRESULT __stdcall CreateInstance(IUnknown *,REFIID, void **);
-    HRESULT __stdcall LockServer(BOOL);
+    private:
+        long m_cRef;
+    public:
+        CMultiplicationDivisionClassFactory(void);
+        ~CMultiplicationDivisionClassFactory();
+        HRESULT  __stdcall QueryInterface(REFIID, void **);
+        ULONG __stdcall AddRef(void);
+        ULONG __stdcall Release(void);
+        HRESULT __stdcall CreateInstance(IUnknown *,REFIID, void **);
+        HRESULT __stdcall LockServer(BOOL);
 };
 
 long glNumberOfActiveComponents=0;
@@ -45,18 +45,18 @@ BOOL WINAPI DllMain(HINSTANCE hDll, DWORD dwReason, LPVOID Reserved)
     return (TRUE);
 }
 
-CSumSubtract::CSumSubtract(void)
+CMultiplicationDivision::CMultiplicationDivision(void)
 {
     m_cRef=1;
     InterlockedIncrement(&glNumberOfActiveComponents);
 }
 
-CSumSubtract::~CSumSubtract(void)
+CMultiplicationDivision::~CMultiplicationDivision(void)
 {
     InterlockedDecrement(&glNumberOfActiveComponents);
 }
 
-HRESULT CSumSubtract::QueryInterface(REFIID riid, void **ppv)
+HRESULT CMultiplicationDivision::QueryInterface(REFIID riid, void **ppv)
 {
     /*
     How come == is working as riid and IID are structures. By using Operator overloading.
@@ -69,14 +69,14 @@ HRESULT CSumSubtract::QueryInterface(REFIID riid, void **ppv)
     }
     */
     if(riid == IID_IUnknown)
-        *ppv=static_cast<ISum *>(this);
-    else if (riid == IID_ISum)
+        *ppv=static_cast<IMultiplication *>(this);
+    else if (riid == IID_IMultiplication)
     {
-        *ppv = static_cast<ISum *>(this);
+        *ppv = static_cast<IMultiplication *>(this);
     }
-    else if (riid == IID_ISubtract)
+    else if (riid == IID_IDivision)
     {
-        *ppv = static_cast<ISubtract *>(this);
+        *ppv = static_cast<IDivision *>(this);
     }
     else
     {
@@ -88,13 +88,13 @@ HRESULT CSumSubtract::QueryInterface(REFIID riid, void **ppv)
     return (S_OK);
 }
 
-ULONG CSumSubtract::AddRef()
+ULONG CMultiplicationDivision::AddRef()
 {
     InterlockedIncrement(&m_cRef);
     return (m_cRef);
 }
 
-ULONG CSumSubtract::Release()
+ULONG CMultiplicationDivision::Release()
 {
     InterlockedDecrement(&m_cRef);
     if (m_cRef == 0)
@@ -105,28 +105,28 @@ ULONG CSumSubtract::Release()
     return (m_cRef);
 }
 
-HRESULT CSumSubtract::SumOfTwoIntegers(int num1, int num2, int *pSum)
+HRESULT CMultiplicationDivision::MultiplicationOfTwoIntegers(int num1, int num2, int *pMultiplication)
 {
-    *pSum = num1 + num2;
+    *pMultiplication = num1 * num2;
     return (S_OK);
 }
 
-HRESULT CSumSubtract::SubtractionOfTwoIntegers(int num1, int num2, int *pSubtract)
+HRESULT CMultiplicationDivision::DivisionOfTwoIntegers(int num1, int num2, int *pDivision)
 {
-    *pSubtract = num1 - num2;
+    *pDivision = num1 / num2;
     return (S_OK);
 }
 
-CSumSubtractClassFactory::CSumSubtractClassFactory(/* args */)
+CMultiplicationDivisionClassFactory::CMultiplicationDivisionClassFactory(/* args */)
 {
     m_cRef =1;
 }
 
-CSumSubtractClassFactory::~CSumSubtractClassFactory()
+CMultiplicationDivisionClassFactory::~CMultiplicationDivisionClassFactory()
 {
 }
 
-HRESULT CSumSubtractClassFactory::QueryInterface(REFIID riid, void **ppv)
+HRESULT CMultiplicationDivisionClassFactory::QueryInterface(REFIID riid, void **ppv)
 {
     if (riid == IID_IUnknown)
     {
@@ -145,13 +145,13 @@ HRESULT CSumSubtractClassFactory::QueryInterface(REFIID riid, void **ppv)
     return (S_OK);
 }
 
-ULONG CSumSubtractClassFactory::AddRef()
+ULONG CMultiplicationDivisionClassFactory::AddRef()
 {
     InterlockedIncrement(&m_cRef);
     return (m_cRef);
 }
 
-ULONG CSumSubtractClassFactory::Release()
+ULONG CMultiplicationDivisionClassFactory::Release()
 {
     InterlockedDecrement(&m_cRef);
     if (m_cRef == 0)
@@ -162,16 +162,16 @@ ULONG CSumSubtractClassFactory::Release()
     return (m_cRef);
 }
 
-HRESULT CSumSubtractClassFactory::CreateInstance(IUnknown *pUnkOuter, REFIID riid,
+HRESULT CMultiplicationDivisionClassFactory::CreateInstance(IUnknown *pUnkOuter, REFIID riid,
 void **ppv)
 {
-    CSumSubtract *pCSumSubtract = NULL;
+    CMultiplicationDivision *pCSumSubtract = NULL;
     HRESULT hr;
     if (pUnkOuter != NULL)
     {
         return (CLASS_E_NOAGGREGATION);
     }
-    pCSumSubtract = new CSumSubtract;
+    pCSumSubtract = new CMultiplicationDivision;
     if (pCSumSubtract == NULL)
     {
         return (E_OUTOFMEMORY);
@@ -182,7 +182,7 @@ void **ppv)
     
 }
 
-HRESULT CSumSubtractClassFactory::LockServer(BOOL fLock)
+HRESULT CMultiplicationDivisionClassFactory::LockServer(BOOL fLock)
 {
     if (fLock)
     {
@@ -197,19 +197,19 @@ HRESULT CSumSubtractClassFactory::LockServer(BOOL fLock)
 
 extern "C" HRESULT __stdcall DllGetClassObject(REFCLSID rclsid, REFIID riid, void **ppv)
 {
-    CSumSubtractClassFactory *pCSumSubtractClassFactory = NULL;
+    CMultiplicationDivisionClassFactory *pCMultiplicationDivisionClassFactory = NULL;
     HRESULT hr;
-    if (rclsid != CLSID_SumSubtract)
+    if (rclsid != CLSID_MultiplicationDivision)
     {
         return(CLASS_E_CLASSNOTAVAILABLE);
     }
-    pCSumSubtractClassFactory = new CSumSubtractClassFactory;
-    if (pCSumSubtractClassFactory == NULL)
+    pCMultiplicationDivisionClassFactory = new CMultiplicationDivisionClassFactory;
+    if (pCMultiplicationDivisionClassFactory == NULL)
     {
         return (E_OUTOFMEMORY);
     }
-    hr = pCSumSubtractClassFactory->QueryInterface(riid, ppv);
-    pCSumSubtractClassFactory->Release();
+    hr = pCMultiplicationDivisionClassFactory->QueryInterface(riid, ppv);
+    pCMultiplicationDivisionClassFactory->Release();
     return (hr);    
 }
 
