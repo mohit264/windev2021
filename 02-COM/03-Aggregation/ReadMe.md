@@ -10,4 +10,3 @@
 6.  Requesting IDivision from above IMultiplication
 7.  Client requesting IUnknown from outer components (ISum/ISubtract)
 8.  Client requesting IUnknwon from inner components (IMultiplication/IDivision)
-9.  
