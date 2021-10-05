@@ -137,7 +137,7 @@ Why it is name as HRESULT?
 To have COM functions in line with or similar with WIN32 SDK it is kept like that. However, it is similar in terms of 32-bit unsigned integer.
 HRESULT are not only error codes, but are success codes too! 
 
-###HRESULT structure
+### HRESULT Structure
 0th TO 15th bit ---> Status Code, Return Code (Earlier this has been called as **SCode** because now **Scode** is limited to only use for Win32 SDK, Today it is deprecated for COM and only applicable for Windows)
        1. This deals with cause of failure or success. e.g. Why it failed or why it suceeded.
        2. All the values kept here are mapped with different macros, which are begin with CO_, MK_, OLE_, DISP_ and most commonly E_, S_ and CLASS_
