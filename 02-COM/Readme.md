@@ -130,3 +130,13 @@ IUnknown Properties
 
 ![image](https://user-images.githubusercontent.com/19527422/133134849-32562788-aef8-4afa-9fed-6f2bd89d6b4b.png)
 
+## HRESULT
+This is the return status of the call. COM recommends or expects Any API or functionality created using COM helper functions should be returning **HRESULT**.
+HRESULT is **NOT** at all handle (Handles are unique ids related to global resource table) to result.
+Why it is name as HRESULT?
+To have COM functions in line with or similar with WIN32 SDK it is kept like that. However, it is similar in terms of 32-bit unsigned integer.
+
+HRESULT
+0th TO 15th bit ---> Status Code, Return Code (Earlier this has been called as **SCode** because now **Scode** is limited to only use for Win32 SDK, Today it is deprecated for COM and only applicable for Windows)
+16th TO 30th bit ---> Fascility code (All this codes are mentioned in **WinError.h** This file doesn't need to include explicitly because **Windows.h** internally references it)
+31th Bit --> Severity code
