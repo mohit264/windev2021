@@ -150,4 +150,5 @@ HRESULT are not only error codes, but are success codes too!
        C ---> COM exception bit
        N ---> Network related bit
        r ---> Unknown (Completely internal)
+       3. All the rest of these bits are related to FASCILITY Macro
 31th Bit --> Severity code
