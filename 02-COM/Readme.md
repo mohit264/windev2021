@@ -144,4 +144,10 @@ HRESULT are not only error codes, but are success codes too!
        3. To only get code part of HRESULT then you can get it by using **HRESULT_CODE** Macro.
        4. To get meaningful message from the error code you can use **FORMAT_MESSAGE** Macro
 16th TO 30th bit ---> Fascility code (All this codes are mentioned in **WinError.h** This file doesn't need to include explicitly because **Windows.h** internally references it)
+       1. This part is COM failures but mostly due to OS reasons. (e.g. driver errors)
+       2. 27th(r bit), 28th(N bit), 29th(C bit) and 30th (R bit) are reserved bit and shouldn't be touched.
+       R ---> RPC bit
+       C ---> COM exception bit
+       N ---> Network related bit
+       r ---> Unknown (Completely internal)
 31th Bit --> Severity code
