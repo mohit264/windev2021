@@ -141,5 +141,7 @@ HRESULT are not only error codes, but are success codes too!
 0th TO 15th bit ---> Status Code, Return Code (Earlier this has been called as **SCode** because now **Scode** is limited to only use for Win32 SDK, Today it is deprecated for COM and only applicable for Windows)
        1. This deals with cause of failure or success. e.g. Why it failed or why it suceeded.
        2. All the values kept here are mapped with different macros, which are begin with CO_, MK_, OLE_, DISP_ and most commonly E_, S_ and CLASS_
+       3. To only get code part of HRESULT then you can get it by using **HRESULT_CODE** Macro.
+       4. To get meaningful message from the error code you can use **FORMAT_MESSAGE** Macro
 16th TO 30th bit ---> Fascility code (All this codes are mentioned in **WinError.h** This file doesn't need to include explicitly because **Windows.h** internally references it)
 31th Bit --> Severity code
