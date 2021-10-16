@@ -120,9 +120,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     // Code
     switch (iMsg)
     {
-    // case WM_DESTROY:
-    //     PostQuitMessage(0);
-    //     break;
+        case WM_DESTROY:
+            PostQuitMessage(0);
+        break;
     
     default:
         break;
