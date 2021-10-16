@@ -130,3 +130,27 @@ IUnknown Properties
 
 ![image](https://user-images.githubusercontent.com/19527422/133134849-32562788-aef8-4afa-9fed-6f2bd89d6b4b.png)
 
+## HRESULT
+This is the return status of the call. COM recommends or expects Any API or functionality created using COM helper functions should be returning **HRESULT**.
+HRESULT is **NOT** at all handle (Handles are unique ids related to global resource table) to result.
+Why it is name as HRESULT?
+To have COM functions in line with or similar with WIN32 SDK it is kept like that. However, it is similar in terms of 32-bit unsigned integer.
+HRESULT are not only error codes, but are success codes too! 
+
+### HRESULT Structure
+0th TO 15th bit ---> Status Code, Return Code (Earlier this has been called as **SCode** because now **Scode** is limited to only use for Win32 SDK, Today it is deprecated for COM and only applicable for Windows)
+       1. This deals with cause of failure or success. e.g. Why it failed or why it suceeded.
+       2. All the values kept here are mapped with different macros, which are begin with CO_, MK_, OLE_, DISP_ and most commonly E_, S_ and CLASS_
+       3. To only get code part of HRESULT then you can get it by using **HRESULT_CODE** Macro.
+       4. To get meaningful message from the error code you can use **FORMAT_MESSAGE** Macro
+16th TO 30th bit ---> Fascility code (All this codes are mentioned in **WinError.h** This file doesn't need to include explicitly because **Windows.h** internally references it)
+       1. This part is COM failures but mostly due to OS reasons. (e.g. driver errors)
+       2. 27th(r bit), 28th(N bit), 29th(C bit) and 30th (R bit) are reserved bit and shouldn't be touched.
+       R ---> RPC bit
+       C ---> COM exception bit
+       N ---> Network related bit
+       r ---> Unknown (Completely internal)
+       3. All the rest of these bits are related to FASCILITY Macro
+31th Bit --> Severity code (Tells COM whther HRESULT is Success (value is 0) or Failed (value is 1))
+
+> To create your own custom HRESULT you can use MAKE_HRESULT macro and pass all the required parameters)
