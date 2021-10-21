@@ -1,4 +1,4 @@
-import "unknwn.idl"
+import "unknwn.idl" ;
 [
     object,
     uuid(BAC91261-3C2F-4CFB-9AFB-F823572F838F),
@@ -9,7 +9,7 @@ import "unknwn.idl"
 ]
 interface IMyMath : IDispatch
 {
-    import "oaidl.idl"
+    import "oaidl.idl" ;
     HRESULT SumOfTwoIntegers([in]int, [in]int, [out,retval]int *);
     HRESULT SubtractionOfTwoIntegers([in]int, [in]int, [out,retval]int *);
 };
@@ -20,7 +20,7 @@ interface IMyMath : IDispatch
 ]
 library AutomationServerWithRegFileTypeLib
 {
-    importlib("stdole32.tlb")
+    importlib("stdole32.tlb");
     // Component code
     [
         uuid(9AEA1E50-D8C7-4353-9AA7-B91CB174D9AC),
