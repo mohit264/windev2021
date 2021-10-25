@@ -1,0 +1,8 @@
+﻿  AutomationProxyStubDllData.c
+  AutomationProxyStubGuids.c
+  AutomationProxyStubProxy.c
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 2 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  AutomationProxyStub.vcxproj -> C:\My Projects\windev2021\02-COM\05-Automation\AutomationProxyStub\AutomationProxyStub\Release\AutomationProxyStub.dll

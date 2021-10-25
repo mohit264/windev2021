@@ -1,0 +1,1 @@
+C:\My Projects\windev2021\02-COM\05-Automation\AutomationProxyStub\AutomationProxyStub\Release\AutomationProxyStub.dll
