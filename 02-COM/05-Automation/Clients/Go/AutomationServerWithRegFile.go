@@ -1,16 +1,14 @@
 package main
 
 import (
-	"fmt"
-	"syscall"
+	ole "github.com/go-ole/go-ole"
 )
 
 func main() {
-	libole32, _ := syscall.LoadLibrary("ole32.dll")
+	ole.CoInitialize(nil);
 	
-	ptrcoInitialize, _ := syscall.GetProcAddress(syscall.Handle(libole32), "CoInitialize")
-	ptrcoCreateInstance, _ := syscall.GetProcAddress(syscall.Handle(libole32), "CoCreateInstance")
-
-	ptrcoCreateInstance()
+	ole.CoUninitialize()
 	
 }
+
+

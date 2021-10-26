@@ -69,6 +69,7 @@ BOOL WINAPI DllMain(HINSTANCE hDll, DWORD dwReason, LPVOID Reserved)
 CMyMath::CMyMath()
 {
     m_cRef = 1;
+    m_pITypeInfo = NULL;
     InterlockedIncrement(&glNumberOfActiveComponents);
 }
 
