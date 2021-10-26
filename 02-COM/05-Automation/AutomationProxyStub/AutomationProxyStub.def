@@ -4,4 +4,4 @@ EXPORTS
     DllCanUnloadNow     PRIVATE
     GetProxyDllInfo     PRIVATE
     DllRegisterServer   PRIVATE
-    DllUnRegisterServer PRIVATE
+    DllUnregisterServer PRIVATE

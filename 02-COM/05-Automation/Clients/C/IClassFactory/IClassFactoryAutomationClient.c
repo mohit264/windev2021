@@ -31,8 +31,7 @@
 // if the less attributed message i.e. (16-bit) and if there more attributes to the message.
 // then it can be passed from LPARAM.
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
-ISum *pISum = NULL;
-ISubtract *pISubtract = NULL;
+IMyMath *pIMyMath = NULL;
 // Global Variable Declarations
 
 // Entry point Functions
@@ -131,39 +130,38 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     TCHAR str[255];
     iSum = 0;
     iSubtract = 0;
-    num1 = 300;
-    num2 = 200;
+    num1 = 155;
+    num2 = 145;
     // Code
     switch (iMsg)
     {
         case WM_CREATE:
-            hr = CoCreateInstance(CLSID_MyMath, NULL, CLSCTX_INPROC_SERVER, IID_IMyMath, (void **) &pISum);
+            hr = CoCreateInstance(&CLSID_MyMath, NULL, CLSCTX_INPROC_SERVER, &IID_IMyMath, (void **) &pIMyMath);
             if (FAILED(hr))
             {
                 MessageBox(hwnd, TEXT("ISum Interface Can Not be Obtained"), TEXT("Error!"), MB_OK);
                 DestroyWindow(hwnd);
             }
-            hr = pISum->SumOfTwoIntegers(num1, num2, &iSum);
-            wsprintf(str, TEXT("Sum Of %d and %d is %d"),num1,num2,iSum);
+            hr = pIMyMath->lpVtbl->SumOfTwoIntegers(pIMyMath, num1, num2, &iSum);
+            if (FAILED(hr))
+            {
+                MessageBox(hwnd, TEXT("Sum Can Not be done"), TEXT("Error!"), MB_OK);
+                DestroyWindow(hwnd);
+            }
+            wsprintf(str, TEXT("Sum Of %d and %d is %d"), num1, num2, iSum);
             MessageBox(hwnd, str, TEXT("Sum Of Two Integers"), MB_OK);
      
-            // hr = pISum->QueryInterface(IID_ISubtract, (void **) &pISubtract);
-            // if (FAILED(hr))
-            // {
-            //     MessageBox(hwnd, TEXT("ISubtract Interface Can not be obtained"), TEXT("Error"), MB_OK);
-            //     pISum->Release();
-            //     pISum = NULL;
-            //     DestroyWindow(hwnd);
-            // }
-            
-            pISum->SubtractionOfTwoIntegers(num1,num2, &iSubtract);
+                        
+            pIMyMath->lpVtbl->SubtractionOfTwoIntegers(pIMyMath, num1,num2, &iSubtract);
             wsprintf(str, TEXT("Subtraction Of %d and %d is %d"),num1,num2,iSubtract);
             MessageBox(hwnd, str, TEXT("Subtraction Of Two Integers"), MB_OK);
-            //pISubtract->Release();
-            //pISubtract = NULL;
-            pISum->Release();
-            pISum = NULL;
-        break;
+            // if (pIMyMath)
+            // {
+            //     pIMyMath->lpVtbl->Release(pIMyMath);
+            //     pIMyMath = NULL;
+            // }
+            
+            break;
 
         case WM_DESTROY:
             PostQuitMessage(0);
