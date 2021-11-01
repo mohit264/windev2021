@@ -10,7 +10,7 @@ public:
     virtual HRESULT __stdcall SubtractionOfTwoIntegers(int, int, int *) = 0;
 };
 
-// 
+// {E9CE19D5-0869-4F9D-BB3F-C31C3310556E}
 const CLSID CLSID_SumSubtract = 
 { 0xe9ce19d5, 0x869, 0x4f9d, 0xbb, 0x3f, 0xc3, 0x1c, 0x33, 0x10, 0x55, 0x6e };
 
