@@ -6,7 +6,7 @@
 4. Your COM Server must be working for all other clients
 5. Create new directory named as **GO** inside the Automation/Clients
 6. Download the **AutomationIClassFactoryClient.go and Run.bat** in your newly created Go directory
-7. Modify the **AutomationIClassFactoryClient.go** to update the CLSID and IID of MyMath as per your COM Server.
+7. Modify the **AutomationIClassFactoryClient.go** to update the CLSID and IID of MyMath as per **your COM Server implementation.
 8. Go to the powershell and run the bat file
 9. Go will download the required dependencies(require internet connection) and execute the program.
 ![image](https://user-images.githubusercontent.com/19527422/139788323-ba0a1e13-c728-4877-88e9-719bcb0c14e5.png)
