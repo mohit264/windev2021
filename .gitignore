@@ -1,3 +1,7 @@
 **/*.exe
 **/*.obj
 **/.vs
+
+# Added by cargo
+
+/target
