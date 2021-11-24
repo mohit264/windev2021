@@ -1,0 +1,4 @@
+LIBRARY MyDllServer
+
+EXPORTS
+    SumOfTwoIntergers
