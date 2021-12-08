@@ -1,1 +1,0 @@
-C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\Hello.vcxproj;x64

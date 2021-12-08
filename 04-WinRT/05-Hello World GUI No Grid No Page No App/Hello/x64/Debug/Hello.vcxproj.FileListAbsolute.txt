@@ -1,0 +1,94 @@
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\Hello\App.xbf
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\Hello\MainPage.xbf
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\Hello\resources.pri
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\Hello\AppxManifest.xml
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\Hello\Hello.build.appxrecipe
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\XamlSaveStateFile.xml
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\ResourceHandlingTask.state
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\Hello.vcxproj.GenerateResource.Cache
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\priconfig.xml
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\priconfig.xml.intermediate
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\unfiltered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\unfiltered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\filtered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\filtered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\excluded.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\excluded.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\resources.resfiles
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\resources.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\pri.resfiles
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\pri.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\qualifiers.txt
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\qualifiers.txt.intermediate
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\My Projects\windev2021\04-WinRT\02-Hello World GUI\Hello\x64\Debug\ProjectArchitectures.txt
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\Hello\App.xbf
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\Hello\MainPage.xbf
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\Hello\resources.pri
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\Hello\AppxManifest.xml
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\Hello\Hello.build.appxrecipe
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\Hello.vcxproj.AssemblyReference.cache
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\XamlSaveStateFile.xml
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\ResourceHandlingTask.state
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\Hello.vcxproj.GenerateResource.Cache
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\priconfig.xml
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\priconfig.xml.intermediate
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\unfiltered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\unfiltered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\filtered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\filtered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\excluded.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\excluded.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\resources.resfiles
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\resources.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\pri.resfiles
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\pri.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\qualifiers.txt
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\qualifiers.txt.intermediate
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\My Projects\windev2021\04-WinRT\03-Hello World GUI No Grid\Hello\x64\Debug\ProjectArchitectures.txt
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello\App.xbf
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello\resources.pri
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello\AppxManifest.xml
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello\Hello.build.appxrecipe
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\XamlSaveStateFile.xml
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\ResourceHandlingTask.state
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello.vcxproj.GenerateResource.Cache
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\priconfig.xml
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\priconfig.xml.intermediate
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\unfiltered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\unfiltered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\filtered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\filtered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\excluded.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\excluded.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\resources.resfiles
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\resources.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\pri.resfiles
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\pri.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\qualifiers.txt
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\qualifiers.txt.intermediate
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\ProjectArchitectures.txt
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\Hello\resources.pri
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\Hello\AppxManifest.xml
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\Hello\Hello.build.appxrecipe
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\Hello.vcxproj.AssemblyReference.cache
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\ResourceHandlingTask.state
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\Hello.vcxproj.GenerateResource.Cache
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\priconfig.xml
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\priconfig.xml.intermediate
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\unfiltered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\unfiltered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\filtered.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\filtered.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\excluded.layout.resfiles
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\excluded.layout.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\resources.resfiles
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\resources.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\pri.resfiles
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\pri.resfiles.intermediate
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\qualifiers.txt
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\qualifiers.txt.intermediate
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\My Projects\windev2021\04-WinRT\05-Hello World GUI No Grid No Page No App\Hello\x64\Debug\ProjectArchitectures.txt
