@@ -1,0 +1,1 @@
+C:\My Projects\windev2021\04-WinRT\XBOX\App1\App1.csproj;x64

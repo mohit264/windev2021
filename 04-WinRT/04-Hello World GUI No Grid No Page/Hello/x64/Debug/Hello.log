@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  App.xaml.cpp
+  XamlTypeInfo.Impl.g.cpp
+  XamlTypeInfo.g.cpp
+     Creating library C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello\Hello.lib and object C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello\Hello.exp
+  Hello.vcxproj -> C:\My Projects\windev2021\04-WinRT\04-Hello World GUI No Grid No Page\Hello\x64\Debug\Hello\Hello.exe
