@@ -1,0 +1,1 @@
+C:\My Projects\windev2021\04-WinRT\06-Event Handling\Hello\Hello.vcxproj;x64
